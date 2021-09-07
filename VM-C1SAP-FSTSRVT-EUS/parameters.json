@@ -1,0 +1,91 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "networkInterfaceName": {
+            "value": "vm-c1sap-fstsrvt-eus45"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "VM-C1SAP-FSTSRVT-EUS-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "SNET-C1-SAP-App-POC-EUS"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/6f9b666e-dfb6-4a08-8dc2-d2baf7b8fda4/resourceGroups/RG-Premium-ITG-Network-EUS/providers/Microsoft.Network/virtualNetworks/VNET-C1-SAP-Suite-POC-EUS"
+        },
+        "virtualMachineName": {
+            "value": "VM-C1SAP-FSTSRVT-EUS"
+        },
+        "virtualMachineComputerName": {
+            "value": "VM-C1SAP-FSTSRVT-EUS"
+        },
+        "virtualMachineRG": {
+            "value": "RG-C1-SAP-Suite-POC-EUS"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "ReadOnly",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "VM-C1SAP-FSTSRVT-EUS_DataDisk_0",
+                    "storageAccountType": null,
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                }
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "VM-C1SAP-FSTSRVT-EUS_DataDisk_0",
+                    "sku": "StandardSSD_LRS",
+                    "properties": {
+                        "diskSizeGB": 256,
+                        "creationData": {
+                            "createOption": "empty"
+                        }
+                    }
+                }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_E4as_v4"
+        },
+        "adminUsername": {
+            "value": "CloudOpsUser"
+        },
+        "adminPassword": {
+            "value": null
+        }
+    }
+}
